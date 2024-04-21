@@ -13,7 +13,7 @@ export default function SectionWrapper(props) {
 				</h2>
 			</div>
 			<div className="max-w-[800px] w-full flex flex-col mx-auto gap-10">
-				<h1 className="text-5xl">Strong time baby</h1>
+				{/* <h1 className="text-5xl">Strong time baby</h1> */}
 				{children}
 			</div>
 		</section>
