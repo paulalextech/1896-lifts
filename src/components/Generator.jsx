@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
 import { WORKOUTS } from '../utils/exerciseList';
 
@@ -17,8 +17,13 @@ function Header(props) {
 	);
 }
 
-export default function Generator(props) {
-	let showModal = false;
+export default function Generator() {
+	const [showModal, setShowModal] = useState(false);
+	// let showModal = false;
+
+	function toggleModal() {
+		setShowModal(!showModal);
+	}
 
 	return (
 		<SectionWrapper
@@ -50,7 +55,10 @@ export default function Generator(props) {
 			/>
 
 			<div className=" bg-orange-500 rounded-lg flex flex-col">
-				<button className="relative p-3 flex items-center justify-center">
+				<button
+					onClick={toggleModal}
+					className="relative p-3 flex items-center justify-center"
+				>
 					<p>Select body parts you wish to train</p>
 					<i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>{' '}
 				</button>
