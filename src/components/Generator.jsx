@@ -18,6 +18,8 @@ function Header(props) {
 }
 
 export default function Generator(props) {
+	let showModal = false;
+
 	return (
 		<SectionWrapper
 			header={'generate your training'}
@@ -47,11 +49,12 @@ export default function Generator(props) {
 				description={'Select the body parts you wish to train'}
 			/>
 
-			<div className="">
-				<div>
+			<div className=" bg-orange-500 rounded-lg flex flex-col">
+				<button className="relative p-3 flex items-center justify-center">
 					<p>Select body parts you wish to train</p>
-					<i class="fa-solid fa-caret-down"></i>{' '}
-				</div>
+					<i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>{' '}
+				</button>
+				{showModal && <div>modal</div>}
 			</div>
 		</SectionWrapper>
 	);
