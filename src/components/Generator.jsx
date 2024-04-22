@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
-import { WORKOUTS } from '../utils/exerciseList';
+import { SCHEMES, WORKOUTS } from '../utils/exerciseList';
 
 function Header(props) {
 	const { index, title, description } = props;
@@ -66,6 +66,24 @@ export default function Generator() {
 					<i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>{' '}
 				</button>
 				{showModal && <div>modal</div>}
+			</div>
+			<Header
+				index={'03'}
+				title={'Become Strong'}
+				description={'Select your ultimate objective'}
+			/>
+
+			<div className="grid grid-cols-3 gap-4">
+				{Object.keys(SCHEMES).map((scheme, schemeIndex) => {
+					return (
+						<button
+							className="bg-orange-500 duration-200 hover:bg-purple-600 py-3 rounded-lg uppercase"
+							key={schemeIndex}
+						>
+							<p>{scheme.replaceAll('_', ' ')}</p>
+						</button>
+					);
+				})}
 			</div>
 		</SectionWrapper>
 	);
