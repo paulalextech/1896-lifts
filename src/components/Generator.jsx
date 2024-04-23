@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
 import { SCHEMES, WORKOUTS } from '../utils/exerciseList';
+// import Button from './Button';
 
 function Header(props) {
 	const { index, title, description } = props;
@@ -21,7 +22,7 @@ export default function Generator() {
 	const [showModal, setShowModal] = useState(false);
 	const [poison, setPoison] = useState('individual');
 	const [muscles, setMuscles] = useState([]);
-	const [goals, setGoals] = useState('strength_power');
+	const [goal, setGoal] = useState('strength_power');
 	// let showModal = false;
 
 	function toggleModal() {
@@ -43,7 +44,13 @@ export default function Generator() {
 				{Object.keys(WORKOUTS).map((type, typeIndex) => {
 					return (
 						<button
-							className="bg-orange-500 duration-200 hover:bg-purple-600 py-3 rounded-lg uppercase"
+							onClick={() => {
+								setPoison(type);
+							}}
+							className={
+								'bg-orange-500 border duration-200 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg uppercase' +
+								(type === poison ? 'border-blue-600 ' : 'border-blue-400 ')
+							}
 							key={typeIndex}
 						>
 							<p>{type.replaceAll('_', ' ')}</p>
@@ -65,7 +72,20 @@ export default function Generator() {
 					<p>Select body parts you wish to train</p>
 					<i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>{' '}
 				</button>
-				{showModal && <div>modal</div>}
+				{showModal && (
+					<div className="flex flex-col px-3 pb-3">
+						{(poison === 'individual'
+							? WORKOUTS[poison]
+							: Object.keys(WORKOUTS[poison])
+						).map((muscleGroup, muscleGroupIndex) => {
+							return (
+								<button key={muscleGroupIndex}>
+									<p>{muscleGroup}</p>
+								</button>
+							);
+						})}
+					</div>
+				)}
 			</div>
 			<Header
 				index={'03'}
@@ -77,7 +97,13 @@ export default function Generator() {
 				{Object.keys(SCHEMES).map((scheme, schemeIndex) => {
 					return (
 						<button
-							className="bg-orange-500 duration-200 hover:bg-purple-600 py-3 rounded-lg uppercase"
+							onClick={() => {
+								setGoal(scheme);
+							}}
+							className={
+								'bg-orange-500 border duration-200 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg uppercase' +
+								(scheme === goal ? 'border-blue-600 ' : 'border-blue-400 ')
+							}
 							key={schemeIndex}
 						>
 							<p>{scheme.replaceAll('_', ' ')}</p>
