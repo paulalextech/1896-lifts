@@ -5,10 +5,10 @@ export default function Hero() {
 	return (
 		<div className="min-h-screen flex flex-col gap-10 items-center justify-center text-center max-w-[900px] w-full mx-auto p-4">
 			<div className="flex flex-col gap-4">
-				<p className="uppercase">
+				<p className="uppercase text-lg">
 					Its time to get strong, ancient Greek type strong.
 				</p>
-				<h1 className="uppercase font-semibold text-5xl sm:text-5xl md:text-7xl lg:text-8xl">
+				<h1 className="uppercase font-semibold text-xl sm:text-5xl md:text-7xl lg:text-8xl">
 					1896 lifts
 				</h1>
 			</div>
