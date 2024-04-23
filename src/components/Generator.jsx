@@ -97,7 +97,16 @@ export default function Generator() {
 							: Object.keys(WORKOUTS[poison])
 						).map((muscleGroup, muscleGroupIndex) => {
 							return (
-								<button key={muscleGroupIndex} classname="hover:text">
+								<button
+									onClick={() => {
+										updateMuscles(muscleGroup);
+									}}
+									key={muscleGroupIndex}
+									className={
+										'hover:text-blue-600' +
+										(muscles.includes(muscleGroup) ? ' text-blue-400' : ' ')
+									}
+								>
 									<p className="uppercase">{muscleGroup}</p>
 								</button>
 							);
