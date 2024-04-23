@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
 import { SCHEMES, WORKOUTS } from '../utils/exerciseList';
-// import Button from './Button';
+import Button from './Button';
 
 function Header(props) {
 	const { index, title, description } = props;
@@ -147,6 +147,7 @@ export default function Generator() {
 					);
 				})}
 			</div>
+			<Button text={'Formulate'}></Button>
 		</SectionWrapper>
 	);
 }

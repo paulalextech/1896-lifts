@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 export default function Hero() {
 	return (
@@ -23,9 +24,7 @@ export default function Hero() {
 				strong, mobile, multi-directional and upheld the highest regard for self
 				development.
 			</p>
-			<button className="px-8 py-3 rounded-lg bg-orange-500 uppercase border-solid border hover:border-blue-600 hover:bg-purple-600">
-				<p>I accept the quest</p>
-			</button>
+			<Button text={'Accept & Begin'}></Button>
 		</div>
 	);
 }
