@@ -30,21 +30,25 @@ export default function Generator() {
 	}
 
 	function updateMuscles(muscleGroup) {
+		if (muscles.includes(muscleGroup)) {
+			setMuscles(muscles.filter((val) => val !== muscleGroup));
+			return;
+		}
+
 		if (muscles.length > 2) {
 			return;
 		}
 
 		if (poison !== 'individual') {
 			setMuscles([muscleGroup]);
-			return;
-		}
-
-		if (muscles.includes(muscleGroup)) {
-			setMuscles(muscles.filter((val) => val !== muscleGroup));
+			setShowModal(false);
 			return;
 		}
 
 		setMuscles([...muscles, muscleGroup]);
+		if (muscles.length === 3) {
+			setShowModal(false);
+		}
 	}
 
 	return (
@@ -63,6 +67,7 @@ export default function Generator() {
 					return (
 						<button
 							onClick={() => {
+								setMuscles([]);
 								setPoison(type);
 							}}
 							className={
@@ -87,7 +92,11 @@ export default function Generator() {
 					onClick={toggleModal}
 					className="relative p-3 flex items-center justify-center"
 				>
-					<p>Select body parts you wish to train</p>
+					<p className="capitalize">
+						{muscles.length === 0
+							? 'Select body parts you wish to train'
+							: muscles.join(' ')}
+					</p>
 					<i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>{' '}
 				</button>
 				{showModal && (
