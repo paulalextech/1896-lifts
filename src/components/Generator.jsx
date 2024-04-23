@@ -29,6 +29,24 @@ export default function Generator() {
 		setShowModal(!showModal);
 	}
 
+	function updateMuscles(muscleGroup) {
+		if (muscles.length > 2) {
+			return;
+		}
+
+		if (poison !== 'individual') {
+			setMuscles([muscleGroup]);
+			return;
+		}
+
+		if (muscles.includes(muscleGroup)) {
+			setMuscles(muscles.filter((val) => val !== muscleGroup));
+			return;
+		}
+
+		setMuscles([...muscles, muscleGroup]);
+	}
+
 	return (
 		<SectionWrapper
 			header={'generate your training'}
@@ -79,8 +97,8 @@ export default function Generator() {
 							: Object.keys(WORKOUTS[poison])
 						).map((muscleGroup, muscleGroupIndex) => {
 							return (
-								<button key={muscleGroupIndex}>
-									<p>{muscleGroup}</p>
+								<button key={muscleGroupIndex} classname="hover:text">
+									<p className="uppercase">{muscleGroup}</p>
 								</button>
 							);
 						})}
