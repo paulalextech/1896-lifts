@@ -18,11 +18,10 @@ function Header(props) {
 	);
 }
 
-export default function Generator() {
+export default function Generator(props) {
+	const { muscles, setMuscles, poison, setPoison, goal, setGoal } = props;
 	const [showModal, setShowModal] = useState(false);
-	const [poison, setPoison] = useState('individual');
-	const [muscles, setMuscles] = useState([]);
-	const [goal, setGoal] = useState('strength_power');
+
 	// let showModal = false;
 
 	function toggleModal() {
@@ -71,7 +70,7 @@ export default function Generator() {
 								setPoison(type);
 							}}
 							className={
-								'bg-orange-500 border duration-200 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg uppercase' +
+								'bg-orange-500 border duration-200 px-4 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg uppercase' +
 								(type === poison ? 'border-blue-600 ' : 'border-blue-400 ')
 							}
 							key={typeIndex}
@@ -137,7 +136,7 @@ export default function Generator() {
 								setGoal(scheme);
 							}}
 							className={
-								'bg-orange-500 border duration-200 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg uppercase' +
+								'bg-orange-500 border duration-200 hover:border-blue-600 hover:bg-purple-600 py-3 rounded-lg px-4 uppercase' +
 								(scheme === goal ? 'border-blue-600 ' : 'border-blue-400 ')
 							}
 							key={schemeIndex}
