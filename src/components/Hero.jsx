@@ -24,7 +24,12 @@ export default function Hero() {
 				strong, mobile, multi-directional and upheld the highest regard for self
 				development.
 			</p>
-			<Button text={'Accept & Begin'}></Button>
+			<Button
+				func={() => {
+					window.location.href = '#generate';
+				}}
+				text={'Accept & Begin'}
+			></Button>
 		</div>
 	);
 }
