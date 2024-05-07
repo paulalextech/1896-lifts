@@ -12,13 +12,13 @@ export default function Hero() {
 					1896 lifts
 				</h1>
 			</div>
-			<p className="text-sm md:text-base font-light text-justify">
+			<p className="text-xl md:text-md font-light text-justify">
 				I acknowledge that my current{' '}
 				<span className="text-orange-500 font-medium uppercase">physical</span>{' '}
 				and{' '}
 				<span className="text-orange-500 font-medium uppercase">mental</span>{' '}
 				state can change. I can follow the ways of the ancients Greeks. Using
-				modern day equipment. Barbells, weights and glorious kettle-bells, I to
+				modern day equipment. Barbells, weights and glorious kettle-bells. I too
 				can become a strong bodied and minded modern day greek warrior. The
 				greeks were fore-fathers of modern day olympic lifting. They too were
 				strong, mobile, multi-directional and upheld the highest regard for self
